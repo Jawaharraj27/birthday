@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Priyanka 🎂</title>
+
+    <style>
+        /* Import a cursive font for a personal touch on the signature */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            /* Deeper, richer background gradient */
+            background: radial-gradient(circle at top, #0a001a, #000); 
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh; 
+            position: relative;
+        }
+
+        /* Full-screen Background Video */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2; 
+            opacity: 0.7; /* Increased transparency slightly to blend more */
+        }
+
+        /* Overlay to darken background and enhance readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Stronger dark overlay */
+            z-index: -1;
+        }
+
+        /* Main Content Container */
+        .content {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 70px; /* More padding at bottom */
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 1.8rem; /* Slightly larger heading for impact */
+            margin-top: 60px;
+            color: #ffc0fb; 
+            text-shadow: 0 0 10px #ffc0fb, 0 0 20px #e600e6;
+            animation: glow 1.8s ease-in-out infinite alternate;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 8px #ffc0fb, 0 0 16px #e600e6; }
+            to { text-shadow: 0 0 16px #ffc0fb, 0 0 32px #e600e6; }
+        }
+
+        /* Gallery/Photos - Dynamic Size & Pulsing Border */
+        .name-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 40px; 
+            margin-top: 50px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .name-gallery img {
+            width: 160px; /* MAX SIZE for a clean look */
+            height: 160px; 
+            border-radius: 50%; /* Perfect Circle */
+            object-fit: cover;
+            border: 5px solid #ff99ff; 
+            animation: float 6s ease-in-out infinite, photoGlow 3s infinite alternate; /* Combined animations */
+        }
+
+        .name-gallery img:nth-child(2) {
+            animation-delay: 1s; 
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes photoGlow {
+            from { box-shadow: 0 0 10px #ff99ff, 0 0 20px #ff00ff; }
+            to { box-shadow: 0 0 20px #ff99ff, 0 0 40px #ff00ff; }
+        }
+
+        /* Quote / Wishes - Softer, Larger Text, Subtle Movement */
+        .quote {
+            margin-top: 50px;
+            font-size: 1.2rem; /* Larger, more readable quote */
+            font-style: italic; /* Added italic for sincerity */
+            color: #f0e6ff; 
+            animation: fadeIn 3s ease-in-out forwards;
+            line-height: 1.7;
+            background-color: rgba(255, 182, 255, 0.15); /* Slightly less transparent */
+            backdrop-filter: blur(8px); /* Stronger blur for focus */
+            padding: 30px;
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 182, 255, 0.4); 
+            transform: scale(0.98); /* Added slight initial scale */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .quote:hover {
+            transform: scale(1); /* Hover to zoom slightly */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bottom Wishes - Cursive Font for Signature */
+        .bottom-wishes {
+            font-family: 'Dancing Script', cursive; /* Elegant handwritten style */
+            font-size: 2rem; /* Very large for impact */
+            color: #ffe0ff; 
+            margin-top: 40px;
+            text-shadow: 0 0 15px #ff99ff; 
+            font-weight: 700;
+        }
+
+        /* Hidden audio */
+        audio {
+            display: none;
+        }
+        
+        /* Message to prompt user interaction for music */
+        #music-prompt {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff00ff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.7);
+            animation: pulse 1.5s infinite;
+            cursor: pointer;
+            z-index: 10; 
+            opacity: 0.95;
+            transition: opacity 0.3s;
+        }
+
+        #music-prompt:active {
+             opacity: 0.7;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 0, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 255, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <video class="background-video" autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="happy-birthday-404431.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div id="music-prompt">
+        💖 Tap Anywhere to Start Music and Video! 🎶
+    </div>
+
+    <div class="content">
+        <h1>🎉 Happy Birthday Priyanka 🎉</h1>
+
+        <div class="name-gallery">
+            <img src="1.png" alt="Priyanka Photo 1">
+            <img src=".png" alt="Priyanka Photo 2">
+        </div>
+
+        <p class="quote">
+            “To our elder sister Priyanka — your strength inspires, your kindness warms hearts, 
+            and your dreams light up our world. May your birthday shine as bright as your soul 
+            and your year be filled with endless love, laughter, and success. 
+            Happy Birthday from our family!”
+        </p>
+
+        <p class="bottom-wishes">
+            With endless love and best wishes from, Your Family 💫
+        </p>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const music = document.getElementById('bgMusic');
+            const video = document.querySelector('.background-video');
+            const prompt = document.getElementById('music-prompt');
+
+            const playMedia = () => {
+                // Try to play the music
+                music.play()
+                    .then(() => {
+                        // Success: Hide the prompt message
+                        prompt.style.display = 'none';
+                    })
+                    .catch(e => {
+                        console.log("Music Autoplay blocked or failed.", e);
+                        // If music fails but video plays, still remove listener
+                        prompt.style.display = 'none';
+                    });
+                
+                // Try to unmute and play the video 
+                video.muted = false; // Attempt to unmute the video
+                video.play().catch(e => console.log("Video Autoplay blocked.", e));
+                
+                // Remove the click listener once play attempt is made
+                document.body.removeEventListener('click', playMedia);
+                document.body.removeEventListener('touchend', playMedia);
+                prompt.removeEventListener('click', playMedia);
+            };
+
+            // Add the event listeners to the entire body AND the prompt
+            document.body.addEventListener('click', playMedia, { once: true });
+            document.body.addEventListener('touchend', playMedia, { once: true });
+            prompt.addEventListener('click', playMedia, { once: true });
+        });
+    </script>
+</body>
+</html>
