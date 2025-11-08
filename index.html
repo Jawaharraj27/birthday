@@ -12,7 +12,6 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            /* Deeper, richer background gradient */
             background: radial-gradient(circle at top, #0a001a, #000); 
             color: white;
             text-align: center;
@@ -30,17 +29,17 @@
             height: 100%;
             object-fit: cover;
             z-index: -2; 
-            opacity: 0.7; /* Increased transparency slightly to blend more */
+            opacity: 0.7;
         }
 
-        /* Overlay to darken background and enhance readability */
+        /* Overlay */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Stronger dark overlay */
+            background-color: rgba(0, 0, 0, 0.5); 
             z-index: -1;
         }
 
@@ -48,12 +47,12 @@
         .content {
             position: relative;
             z-index: 1;
-            padding-bottom: 70px; /* More padding at bottom */
+            padding-bottom: 70px;
         }
 
         /* Heading */
         h1 {
-            font-size: 1.8rem; /* Slightly larger heading for impact */
+            font-size: 1.8rem;
             margin-top: 60px;
             color: #ffc0fb; 
             text-shadow: 0 0 10px #ffc0fb, 0 0 20px #e600e6;
@@ -67,7 +66,7 @@
             to { text-shadow: 0 0 16px #ffc0fb, 0 0 32px #e600e6; }
         }
 
-        /* Gallery/Photos - Dynamic Size & Pulsing Border */
+        /* Gallery/Photos - Default (Desktop) Size */
         .name-gallery {
             display: flex;
             justify-content: center;
@@ -78,12 +77,12 @@
         }
 
         .name-gallery img {
-            width: 160px; /* MAX SIZE for a clean look */
+            width: 160px; 
             height: 160px; 
-            border-radius: 50%; /* Perfect Circle */
+            border-radius: 50%;
             object-fit: cover;
             border: 5px solid #ff99ff; 
-            animation: float 6s ease-in-out infinite, photoGlow 3s infinite alternate; /* Combined animations */
+            animation: float 6s ease-in-out infinite, photoGlow 3s infinite alternate;
         }
 
         .name-gallery img:nth-child(2) {
@@ -101,50 +100,37 @@
             to { box-shadow: 0 0 20px #ff99ff, 0 0 40px #ff00ff; }
         }
 
-        /* Quote / Wishes - Softer, Larger Text, Subtle Movement */
+        /* Quote / Wishes - Consistent Styling */
         .quote {
             margin-top: 50px;
-            font-size: 1.2rem; /* Larger, more readable quote */
-            font-style: italic; /* Added italic for sincerity */
+            font-size: 1.2rem;
+            font-style: italic;
             color: #f0e6ff; 
             animation: fadeIn 3s ease-in-out forwards;
             line-height: 1.7;
-            background-color: rgba(255, 182, 255, 0.15); /* Slightly less transparent */
-            backdrop-filter: blur(8px); /* Stronger blur for focus */
+            background-color: rgba(255, 182, 255, 0.15);
+            backdrop-filter: blur(8px);
             padding: 30px;
             border-radius: 20px;
             margin: 50px auto;
-            max-width: 800px;
+            max-width: 800px; /* Max width constraint */
+            width: 90%; /* Ensures it takes up full width on mobile */
             border: 1px solid rgba(255, 182, 255, 0.4); 
-            transform: scale(0.98); /* Added slight initial scale */
+            transform: scale(0.98); 
             transition: transform 0.5s ease-in-out;
         }
 
-        .quote:hover {
-            transform: scale(1); /* Hover to zoom slightly */
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Bottom Wishes - Cursive Font for Signature */
+        /* Bottom Wishes */
         .bottom-wishes {
-            font-family: 'Dancing Script', cursive; /* Elegant handwritten style */
-            font-size: 2rem; /* Very large for impact */
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem; 
             color: #ffe0ff; 
             margin-top: 40px;
             text-shadow: 0 0 15px #ff99ff; 
             font-weight: 700;
         }
 
-        /* Hidden audio */
-        audio {
-            display: none;
-        }
-        
-        /* Message to prompt user interaction for music */
+        /* MUSIC PROMPT STYLING (Kept the same for visibility) */
         #music-prompt {
             position: fixed;
             bottom: 30px;
@@ -163,15 +149,53 @@
             transition: opacity 0.3s;
         }
 
-        #music-prompt:active {
-             opacity: 0.7;
-        }
-        
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(255, 0, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 0, 255, 0); }
         }
+        
+        /* Hidden audio */
+        audio {
+            display: none;
+        }
+
+        /* --- MEDIA QUERY FOR SMALL SCREENS (Mobile View) --- */
+        @media (max-width: 768px) {
+            
+            /* Heading Size Adjustment */
+            h1 {
+                font-size: 1.5rem; /* Slightly smaller on mobile to prevent wrapping */
+                margin-top: 40px;
+            }
+
+            /* Photos - Reduced Size for Mobile */
+            .name-gallery {
+                gap: 20px;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+            
+            .name-gallery img {
+                width: 120px; /* Reduced to 120px on mobile */
+                height: 120px;
+                border: 4px solid #ff99ff;
+            }
+
+            /* Wishes Text Box Adjustment */
+            .quote {
+                font-size: 1rem; /* Smaller, easier to read text */
+                padding: 20px;
+                margin: 40px auto;
+                width: 85%; /* Keep width high */
+            }
+
+            /* Bottom Wishes Size Adjustment */
+            .bottom-wishes {
+                font-size: 1.5rem; /* Smaller signature on mobile */
+            }
+        }
+        /* End Media Query */
     </style>
 </head>
 <body>
@@ -196,15 +220,15 @@
         <h1>🎉 Happy Birthday Priyanka 🎉</h1>
 
         <div class="name-gallery">
-            <img src="1.png" alt="Priyanka Photo 1">
-            <img src=".png" alt="Priyanka Photo 2">
+            <img src=".png" alt="Priyanka Photo 1">
+            <img src="1.png" alt="Priyanka Photo 2">
         </div>
 
         <p class="quote">
             “To our elder sister Priyanka — your strength inspires, your kindness warms hearts, 
             and your dreams light up our world. May your birthday shine as bright as your soul 
             and your year be filled with endless love, laughter, and success. 
-            Happy Birthday from our family!”
+            Happy Birthday to our queen!”
         </p>
 
         <p class="bottom-wishes">
@@ -222,17 +246,15 @@
                 // Try to play the music
                 music.play()
                     .then(() => {
-                        // Success: Hide the prompt message
                         prompt.style.display = 'none';
                     })
                     .catch(e => {
                         console.log("Music Autoplay blocked or failed.", e);
-                        // If music fails but video plays, still remove listener
                         prompt.style.display = 'none';
                     });
                 
                 // Try to unmute and play the video 
-                video.muted = false; // Attempt to unmute the video
+                video.muted = false;
                 video.play().catch(e => console.log("Video Autoplay blocked.", e));
                 
                 // Remove the click listener once play attempt is made
